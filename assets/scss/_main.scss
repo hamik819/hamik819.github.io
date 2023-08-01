@@ -1,0 +1,373 @@
+@charset "utf-8";
+@use './module/mixins' as *;
+@use './module/variables' as *;
+
+.intro{
+    display: flex;
+    margin-bottom: 300px;
+    @include mo{
+        display: block;
+        margin-bottom: 100px;
+    }
+    &__title{
+        font-family: $en-font;
+        // @include em-font-size-pc(70);
+        font-size: 70px;
+        font-weight: 600;
+        line-height: 0.9;
+        overflow: hidden;
+        min-width: 30%;
+        @include mo{
+            font-size: 60px;
+        }
+        p{
+            overflow: hidden;
+            span{
+                display: block;
+            }
+        }
+        &--second{
+            height: 67px;
+            @include mo{
+                height: 58px;
+            }
+        }
+    }
+    &__desc{
+        color: $text-color;
+        @include em-font-size-pc(32);
+        width: 38%;
+        @include mo{
+            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    }
+}
+.interactive{
+    border-bottom: 1px solid #262626;
+    padding-bottom: 30px;
+    &__title{
+        @include em-font-size-pc(70);
+        font-family: $en-font;
+        font-weight: 600;
+        @include mo{
+            font-size: 60px;
+        }
+    }
+    &__list{
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        @include mo{
+            display: block;
+        }
+        &--item{
+            width: 33.333%;
+            display: block;
+            @media (min-width: 769px) {
+                &:hover{
+                    .image{
+                        background-size: 105% auto;
+                    }
+                }
+            }
+            @include mo{
+                margin-bottom: 20px;
+                width: 100%;
+            }
+        }
+    }
+    .image{
+        height: 0;
+        padding-top: 60%;
+        border-radius: 30px;
+        transition: background-size .5s;
+        @include mo{
+            padding-top: 50%;
+        }
+    }
+    .title{
+        font-family: $en-font;
+        @include em-font-size-pc(32);
+        color: $white;
+        margin-top: 10px;
+        @include mo{
+            font-size: 20px;
+        }
+    }
+}
+.project{
+    border-bottom: 1px solid #262626;
+    &__title{
+        @include em-font-size-pc(70);
+        font-family: $en-font;
+        font-weight: 600;
+        @include mo{
+            font-size: 60px;
+        }
+    }
+    &__list{
+        @include mo{
+            margin-top: 70px;
+        }
+        .item{
+            display: block;
+            margin-bottom: 200px;
+            @include mo{
+                margin-bottom: 100px;
+            }
+            @media (min-width: 769px){
+                &:hover{
+                    .image{
+                        background-size: 105% auto;
+                    }
+                    .image::after{
+                        opacity: 1;
+                    }
+                }
+            }
+            &-right{
+                margin-left: auto;
+                width: 65%;
+                @include mo{
+                    width: 90%;
+                }
+                .image{
+                    background-color: $text-color;
+                    height: 0;
+                    padding-top: 60%;
+                    @include mo{
+                        padding-top: 70%;
+                    }
+                }
+            }
+            &-left{
+                width: 65%;
+                @include mo{
+                    width: 90%;
+                }
+                .image{
+                    background-color: $text-color;
+                    height: 0;
+                    padding-top: 60%;
+                    @include mo{
+                        padding-top: 70%;
+                    }
+                }
+            }
+            &-wrap{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                @include mo{
+                    gap: 10px;
+                }
+            }
+            &-left-s{
+                width: 35%;
+                @include mo{
+                    width: 50%;
+                }
+                .image{
+                    background-color: $text-color;
+                    height: 0;
+                    padding-top: 70%;
+                    @include mo{
+                        padding-top: 80%;
+                    }
+                }
+            }
+            &-right-s{
+                width: 35%;
+                @include mo{
+                    width: 50%;
+                }
+                .image{
+                    background-color: $text-color;
+                    height: 0;
+                    padding-top: 70%;
+                    @include mo{
+                        padding-top: 150%;
+                    }
+                }
+            }
+        }
+        .image{
+            border-radius: 30px;
+            position: relative;
+            transition: background-size 0.5s;
+            &:after{
+                content: 'View';
+                position: absolute;
+                background-color: $white;
+                color: $black;
+                padding: 10px 20px;
+                bottom: 20px;
+                left: 20px;
+                border-radius: 50px;
+                letter-spacing: 0.5px;
+                opacity: 0;
+                transition: 0.3s;
+            }
+        }
+        .info{
+            font-family: $point-font;
+            color: $text-color;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            gap: 30px;
+            letter-spacing: 1px;
+            margin: 20px 0 0;
+            flex-wrap: wrap;
+            @include mo{
+                font-size: 14px;
+                display: block;
+            }
+            p{
+                &:not(:first-of-type, :last-of-type){
+                    position: relative;
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: -16px;
+                        transform: translateY(-50%);
+                        width: 3px;
+                        height: 3px;
+                        background-color: $text-color;
+                        border-radius: 50%;
+                        @include mo{
+                            display: none;
+                        }
+                    }
+                }
+                &:last-of-type{
+                    margin-left: auto;
+                    @include mo{
+                        margin: 10px 0;
+                    }
+                }
+            }
+        }
+        .text{
+            color: $text-color;
+            @include em-font-size-pc(20);
+            @include mo{
+                @include em-font-size-mo(15)
+            }
+            span{
+                color: $white;
+                @include em-font-size-pc(30);
+                margin-right: 20px;
+                font-family: $en-font;
+                @include mo{
+                    @include em-font-size-mo(15)
+                }
+            }
+        }
+        &.flex{
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            @include mo{
+                display: block;
+            }
+            .item{
+                width: calc(50% - 10px);
+                @include mo{
+                    margin-bottom: 20px;
+                    width: 100%;
+                }
+            }
+            .image{
+                border-radius: 30px;
+                height: 0;
+                padding-top: 60%;
+            }
+            .info{
+                p{
+                    &:last-child{
+                        margin: 0;
+                    }
+                }
+            }
+            .text{
+                span{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+.half{
+    background: url('../images/half.jpeg') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.enterprise{
+    background: url('../images/enterprise2.jpg') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.lookcycle{
+    background: url('../images/lookcycle.jpg') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.modooly{
+    background: url('../images/mockup_modooly.png') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.onemarket{
+    background: url('../images/mockup_onemarket.png') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.medipoppins{
+    background: url('../images/mockup_medipoppins.png') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.norinamoo{
+    background: url('../images/mockup_norinamoo.png') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.piece{
+    background: url('../images/mockup_piece.png') no-repeat center/100% auto;
+    @include mo{
+        background-size: cover;
+    }
+}
+.eddie{
+    background: url('../images/mockup_eddie.png') no-repeat center/100% auto;
+}
+.comas{
+    background: url('../images/mockup_comas.png') no-repeat center/100% auto;
+}
+.samsung{
+    background: url('../images/mockup_samsung.png') no-repeat center/100% auto;
+}
+.rocket{
+    background: url('../images/mockup_rocket.png') no-repeat center/100% auto;
+}
+.section-date{
+    font-family: $en-font;
+    font-weight: 500;
+    color: $text-color;
+    @include em-font-size-pc(25);
+    @include mo{
+        @include em-font-size-mo(15)
+    }
+}
