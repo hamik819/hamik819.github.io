@@ -52,7 +52,7 @@
         font-family: $en-font;
         font-weight: 600;
         @include mo{
-            font-size: 60px;
+            font-size: 50px;
         }
     }
     &__list{
@@ -104,7 +104,7 @@
         font-family: $en-font;
         font-weight: 600;
         @include mo{
-            font-size: 60px;
+            font-size: 50px;
         }
     }
     &__list{
@@ -161,13 +161,13 @@
                 justify-content: space-between;
                 align-items: flex-start;
                 @include mo{
-                    gap: 10px;
+                    flex-direction: column;
                 }
             }
             &-left-s{
                 width: 35%;
                 @include mo{
-                    width: 50%;
+                    width: 100%;
                 }
                 .image{
                     background-color: $text-color;
@@ -181,7 +181,7 @@
             &-right-s{
                 width: 35%;
                 @include mo{
-                    width: 50%;
+                    width: 100%;
                 }
                 .image{
                     background-color: $text-color;
